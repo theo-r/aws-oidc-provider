@@ -20,8 +20,8 @@ class OIDCProviderStack(Stack):
         oidc_role = iam.Role(
             self, 
             'OIDCRole', 
-            assumed_by=iam.FederatedPrincipal(
-                federated=cfn_oidc_provider.attr_arn,
+            assumed_by=iam.WebIdentityPrincipal(
+                cfn_oidc_provider.attr_arn,
                 conditions={
                     "StringLike": {
                         "token.actions.githubusercontent.com:sub": "repo:theo-r/aws-oidc-provider:*",
