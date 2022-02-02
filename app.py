@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import aws_cdk as cdk
 
-from aws.aws_stack import AwsStack
+from oidc_provider_stack import OIDCProviderStack
 
 
 app = cdk.App()
-AwsStack(app, "aws")
+OIDCProviderStack(app, "aws")
 
 app.synth()
